@@ -7,7 +7,6 @@ import {EditEntryComponent} from './edit-entry.component';
 import {CaloriesPipe} from './calories.pipe';
 import {CategoryPipe} from './category.pipe';
 
-
 @Component ({
   selector: 'entry-list',
   inputs: ['entryList'],
