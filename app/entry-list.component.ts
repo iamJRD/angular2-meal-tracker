@@ -5,13 +5,14 @@ import {EntryDetailsComponent} from './entry-details.component';
 import {AddEntryComponent} from './add-entry.component';
 import {EditEntryComponent} from './edit-entry.component';
 import {CaloriesPipe} from './calories.pipe';
+import {CategoryPipe} from './category.pipe';
 
 
 @Component ({
   selector: 'entry-list',
   inputs: ['entryList'],
   outputs: ['onEntrySelect'],
-  pipes: [CaloriesPipe],
+  pipes: [CaloriesPipe, CategoryPipe],
   directives: [EntryDisplayComponent, EntryDetailsComponent, AddEntryComponent, EditEntryComponent],
   template: `
     <div class="col-md-6">
@@ -21,7 +22,16 @@ import {CaloriesPipe} from './calories.pipe';
         <option value="low">View LOW Calorie Entries</option>
         <option value="high">View HIGH Calorie Entries</option>
       </select>
-      <div class="entryDisplayArea" *ngFor="#currentEntry of entryList | intake:filterIntake">
+        <br>
+      <label>Filter Entries by Meal: </label>
+      <select (change)="onChangeMeal($event.target.value)">
+        <option value="all-meals">View ALL Entries</option>
+        <option value="Breakfast">View BREAKFAST Entries</option>
+        <option value="Lunch">View LUNCH Entries</option>
+        <option value="Dinner">View DINNER Entries</option>
+        <option value="Snack">View SNACK Entries</option>
+      </select>
+      <div class="entryDisplayArea" *ngFor="#currentEntry of entryList | intake:filterIntake | meal:filterCategory">
         <entry-display (click)="entryClicked(currentEntry)"
           [class.selected]="currentEntry === selectedEntry"
           [entry]="currentEntry">
@@ -45,6 +55,7 @@ export class EntryListComponent {
   public onEntrySelect: EventEmitter<Entry>;
   public selectedEntry: Entry;
   public filterIntake: string = "all";
+  public filterCategory: string = "all-meals";
 
   constructor() {
     this.onEntrySelect = new EventEmitter();
@@ -63,6 +74,10 @@ export class EntryListComponent {
 
   onChangeIntake(filterCalories) {
     this.filterIntake = filterCalories;
+  }
+
+  onChangeMeal(filterMeal) {
+    this.filterCategory = filterMeal;
   }
 
 }
