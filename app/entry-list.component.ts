@@ -2,13 +2,14 @@ import {Component, EventEmitter} from 'angular2/core';
 import {Entry} from './entry.model';
 import {EntryDisplayComponent} from './entry-display.component';
 import {EntryDetailsComponent} from './entry-details.component';
+import {AddEntryComponent} from './add-entry.component';
 
 
 @Component ({
   selector: 'entry-list',
   inputs: ['entryList'],
   outputs: ['onEntrySelect'],
-  directives: [EntryDisplayComponent, EntryDetailsComponent],
+  directives: [EntryDisplayComponent, EntryDetailsComponent, AddEntryComponent],
   template: `
     <div class="col-md-6">
       <div *ngFor="#currentEntry of entryList">
@@ -20,6 +21,9 @@ import {EntryDetailsComponent} from './entry-details.component';
           [entry]="currentEntry">
         </entry-details>
       </div>
+    </div>
+    <div class="col-md-6">
+      <add-entry (newEntry)="addEntry($event)"></add-entry>
     </div>
   `
 })
@@ -36,5 +40,11 @@ export class EntryListComponent {
   entryClicked(clickedEntry: Entry) {
     this.selectedEntry = clickedEntry;
     this.onEntrySelect.emit(clickedEntry);
+  }
+
+  addEntry(entryInfo: any[]): void {
+    this.entryList.push(
+      new Entry(entryInfo)
+    );
   }
 }
