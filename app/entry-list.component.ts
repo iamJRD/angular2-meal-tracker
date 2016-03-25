@@ -3,13 +3,14 @@ import {Entry} from './entry.model';
 import {EntryDisplayComponent} from './entry-display.component';
 import {EntryDetailsComponent} from './entry-details.component';
 import {AddEntryComponent} from './add-entry.component';
+import {EditEntryComponent} from './edit-entry.component';
 
 
 @Component ({
   selector: 'entry-list',
   inputs: ['entryList'],
   outputs: ['onEntrySelect'],
-  directives: [EntryDisplayComponent, EntryDetailsComponent, AddEntryComponent],
+  directives: [EntryDisplayComponent, EntryDetailsComponent, AddEntryComponent, EditEntryComponent],
   template: `
     <div class="col-md-6">
       <div *ngFor="#currentEntry of entryList">
@@ -20,6 +21,9 @@ import {AddEntryComponent} from './add-entry.component';
         <entry-details *ngIf="currentEntry === selectedEntry"
           [entry]="currentEntry">
         </entry-details>
+        <edit-entry *ngIf="currentEntry === selectedEntry"
+          [entry]="currentEntry">
+        </edit-entry>
       </div>
     </div>
     <div class="col-md-6">
@@ -47,4 +51,5 @@ export class EntryListComponent {
       new Entry(entryInfo)
     );
   }
+
 }

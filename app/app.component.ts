@@ -20,7 +20,7 @@ export class AppComponent {
 
   constructor() {
     this.entries = [
-      new Entry(["Milkshake", "Chocolate Milkshake", 299, "Snack"]),
+      new Entry(["Milkshake", "Brings all the girls to the yard", 299, "Snack"]),
       new Entry(["Sonoran Bowl", "Bowl from Veggie Grill", 650, "Lunch"])
     ]
   }
