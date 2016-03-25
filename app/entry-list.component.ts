@@ -15,7 +15,7 @@ import {CategoryPipe} from './category.pipe';
   pipes: [CaloriesPipe, CategoryPipe],
   directives: [EntryDisplayComponent, EntryDetailsComponent, AddEntryComponent, EditEntryComponent],
   template: `
-    <div class="col-md-6">
+    <div class="col-md-6 leftColumn">
       <label>Filter Entries by Caloric Intake: </label>
       <select (change)="onChangeIntake($event.target.value)">
         <option value="all">View ALL Entries</option>
@@ -44,7 +44,7 @@ import {CategoryPipe} from './category.pipe';
         </edit-entry>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 rightColumn">
       <add-entry (newEntry)="addEntry($event)"></add-entry>
     </div>
   `

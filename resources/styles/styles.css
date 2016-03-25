@@ -4,6 +4,10 @@ body {
 
 h1 {
   color: blue;
+}
+
+.rightColumn,
+.leftColumn {
   text-align: center;
 }
 
