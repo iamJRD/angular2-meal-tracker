@@ -7,7 +7,7 @@ import {Entry} from './entry.model';
   template: `
     <h2>Enter food here:</h2>
       <label>New Food Name: </label>
-      <input placeholder="ex: Chicken Ceaser Salad" type="text" #newEntryName />
+      <input placeholder="ex: Ceaser Salad" type="text" #newEntryName />
         <br>
       <label>New Food Description: </label>
       <input placeholder="ex: Large Salad from Salads R Us" type="text" #newEntryDescription />
