@@ -12,11 +12,13 @@ import {EntryDetailsComponent} from './entry-details.component';
   template: `
     <div class="col-md-6">
       <div *ngFor="#currentEntry of entryList">
-        <entry-display
-          (click)="entryClicked(currentEntry)"
+        <entry-display (click)="entryClicked(currentEntry)"
           [class.selected]="currentEntry === selectedEntry"
           [entry]="currentEntry">
         </entry-display>
+        <entry-details *ngIf="currentEntry === selectedEntry"
+          [entry]="currentEntry">
+        </entry-details>
       </div>
     </div>
   `
