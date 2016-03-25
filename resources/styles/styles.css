@@ -1,3 +1,7 @@
+body {
+  font-family: verdana;
+}
+
 h1 {
   color: blue;
   text-align: center;
@@ -5,12 +9,36 @@ h1 {
 
 .entryDisplayArea h2 {
   text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
-div .btn-success {
-  align-content: center;
+.detailsHeaders {
+  text-decoration: underline;
+}
+
+.highCalories {
+  color: #f00;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.lowCalories {
+  color: #04b80b;
+  font-style: italic;
 }
 
 .selected {
   color: #ff9519;
+}
+
+label {
+  padding-right: 5px;
+}
+
+h4 {
+  margin-top: 40px;
+  text-decoration: underline;
+  font-weight: bold;
 }
