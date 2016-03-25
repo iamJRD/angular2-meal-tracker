@@ -1,18 +1,13 @@
 body {
   font-family: verdana;
+  text-align: center;
 }
 
 h1 {
   color: blue;
 }
 
-.rightColumn,
-.leftColumn {
-  text-align: center;
-}
-
 .entryDisplayArea h2 {
-  text-align: center;
   cursor: pointer;
   font-weight: bold;
   text-decoration: underline;
