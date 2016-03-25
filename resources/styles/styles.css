@@ -1,5 +1,14 @@
 h1 {
   color: blue;
+  text-align: center;
+}
+
+.entryDisplayArea h2 {
+  text-align: center;
+}
+
+div .btn-success {
+  align-content: center;
 }
 
 .selected {
