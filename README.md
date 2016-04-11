@@ -1,6 +1,6 @@
 # _Meal Tracker App_
 
-#### An interactive web app used to track meal entries | March 25, 2016
+#### An interactive web app used to track meal entries | March 2016
 
 #### By: Jared Beckler
 
